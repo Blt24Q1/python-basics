@@ -76,6 +76,57 @@ def string_oper():
     print(str1[::-1]) # 간격 값이 음수 -> 역방향
 
 
+def transform_methods():
+    """
+    대소문자 변환 관련 연습
+    """
+    s = "i like python"
+
+    print("UPPER:", s.upper())  # 모두 대문자
+    print("LOWER:", s.lower())  # 모두 소문자로
+    print("CAPITALIZE:", s.capitalize()) # 첫 글자만 대문자로
+    print("TITLE:", s.title())  # 각 단어의 첫 글자만 대문자로
+
+    print("SWAPCASE:", s.title().swapcase()) # 대 <-> 소
+
+    # 불변 자료 -> 원본은 바뀌지 않음
+    print("원본:", s)
+
+
+def search_methods():
+    """
+    문자열 검색 관련 예제
+    """
+    s = "I Like Python, I Like Java Also"
+    print("COUNT:", s.count("Like")) # 문자열 내부의 Like의 갯수
+
+    # Like을 찾아봅시다 : find
+    index = s.find("Like")  # 문자열 내부의 첫 번째 Like
+    print("1st Find:", index)
+    index = s.find("Like", 6) # 인덱스 6부터 검색
+    print("2nd Find:", index)
+    index = s.find("Like", 21) # 인덱스 21부터 검색
+    print("3rd Find:", index) # 찾을 검색어가 없으면 -1
+
+    # Like을 찾아봅시다 : index
+    print("1st Index:", s.index("Like"))
+    print("2nd Index:", s.index("Like", 6))
+    # print("3rd Index:", s.index("Like", 21))  # Error!
+    # 방법 1: 예외처리
+    # 방법 2: 먼저 검색어 포함 여부를 확인 후 검색
+    if "Like" in s[21:]: # 포함 여부
+        print("3rd Index:", s.index("Like", 21))
+    else:
+        print("21번 인덱스 이후에는 Like 없음")
+
+    # 역방향 검색 : find
+    print("RFIND:", s.rfind("Like"))    # 17
+    print("RFIND:", s.rfind("Like", 0, 17))
+
+
+
 if __name__ == "__main__":
     # define_str()
-    string_oper()
+    # string_oper()
+    # transform_methods()
+    search_methods()
