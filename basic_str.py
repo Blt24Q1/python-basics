@@ -124,7 +124,6 @@ def search_methods():
     print("RFIND:", s.rfind("Like", 0, 17))
 
 
-
 if __name__ == "__main__":
     # define_str()
     # string_oper()
