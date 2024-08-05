@@ -123,9 +123,106 @@ def search_methods():
     print("RFIND:", s.rfind("Like"))    # 17
     print("RFIND:", s.rfind("Like", 0, 17))
 
+    # 문자열이 특정 문자열로 시작되는가?
+    url = "http://www.naver.com"
+    surl = "https://www.google.com"
+    ftp = "ftp://ftp.naver.com"
+
+    print("STARTSWITH:", url.startswith("http://"))
+    print("STARTSWITH:", surl.startswith("https://"))
+    print("STARTSWITH:", ftp.startswith(("http://", "https://")))   # 검색 대상이 여러개
+
+    # 문자열이 특정 문자열로 끝나는가?
+    print("ENDSWITH:", url.endswith("naver.com"))
+    print("ENDSWITH:", surl.endswith("naver.com"))
+
+    # startswith, endswith에서 검색 범위를 제한
+    print("STARTSWITH:", ftp.startswith("ftp.", 6, len(ftp)))
+
+
+def modify_replace_methods():
+    """
+    문자열 수정, 치환 관련 메서드 연습
+    """
+    s = "           Alice and the Heart Queen         "
+    print("STRIP:[", s.strip(), "]", sep="")
+    print("LSTRIP:[", s.lstrip(), "]", sep="")
+    print("RSTRIP:[", s.rstrip(), "]", sep="")
+
+    s = "----------Alice and the Heart Queen----------"
+    print("STRIP -:[", s.strip("-"), "]", sep="")
+
+    s = "I Like Java"
+    # Java -> Python
+    print("REPLACE:", s.replace("Java", "Python"))
+    print("원본:", s) # str은 immutable -> 변경되지 않음
+
+
+def align_methods():
+    """
+    문자열 정렬 관련 메서드
+    """
+    s = "Alice and the Heart Queen"
+
+    print("CENTER:[", s.center(60), "]", sep="")
+    print("CENTER:[", s.center(60, "*"), "]", sep="")
+    print("LJUST:[", s.ljust(60, "*"), "]", sep="")
+    print("RJUST:[", s.rjust(60, "*"), "]", sep="")
+    
+    print("ZFILL:", "1234".zfill(5)) # 5자리 확보, 내용을 채운 후 빈 공간에 0으로 채움
+    print("ZFILL:", "123456".zfill(5)) # 확보한 5자리는 최소 공간, 넘쳐도 잘리지는 않음
+
+
+def split_join_method():
+    """
+    문자열 분할과 합치기 관련 메서드
+    """
+    s = "Ham and Cheese and Breads and Ketchup"
+    print("split:", s.split())  # 공백 문자를 기준으로 분리
+
+    ingr = s.split(" and ") # " and "을 기준으로 분리
+    print("SPLIT:", ingr)
+    print("JOIN:", ", ".join(ingr)) # ingr리스트를 , 를 중심으로 합침
+
+    print(s.split(" and ", 2)) # 앞에서 2개만 분리
+    print(s.rsplit(" and ", 2)) # 뒤에서 2개만 분리
+
+    # 줄 단위 구분 : split("\n") 과 동일
+
+    lines = """\
+    Java Programming
+    Python Programming
+    HTML Coding
+    """
+    print("split:", lines.split())
+    print("split:", lines.split("\n"))
+
+    print("splitlines:", lines.splitlines(True)) # 개행문자 유지
+    print("splitlines:", lines.splitlines(False)) # 개행문자를 유지하지 않음
+
+
+def check_methods():
+    """
+    str 데이터의 형태 판별
+    """
+    print("1234".isdigit()) # 숫자 형태?
+    print("abcd".isalpha()) # 알파벳 형태?
+    print("pyhon3".isalnum()) # 숫자 + 알파벳 형태?
+    print("Python 3".isalnum())
+    print(" \r\n\t".isspace()) # 공백문자 형태?  스페이스, 개행문자, 탭 등 모두 공백 문자
+    print("".isspace())
+
+    print("PYTHON".isupper())
+    print("python".islower())
+    print("Python Programming".istitle())
+
 
 if __name__ == "__main__":
     # define_str()
     # string_oper()
     # transform_methods()
-    search_methods()
+    # search_methods()
+    # modify_replace_methods()
+    # align_methods()
+    # split_join_method()
+    check_methods()
