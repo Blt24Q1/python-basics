@@ -256,6 +256,7 @@ def string_format():
     total, fruit, eat = 10, "apple", 3
     print(f"{total}개의 {fruit.upper()} 중에서 {eat}개를 먹어서 {total - eat}개가 남았다")
 
+
 if __name__ == "__main__":
     # define_str()
     # string_oper()
