@@ -267,3 +267,4 @@ if __name__ == "__main__":
     # split_join_method()
     # check_methods()
     string_format()
+    
