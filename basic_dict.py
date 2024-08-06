@@ -111,8 +111,33 @@ def using_dict():
     item = phones.pop("도우너")
     print(item)
     print(phones)
+
+
+def loop():
+    """
+    사전의 순회(loop) : 기본적으로 keySet 대상
+    """
+    phones = {
+        "둘리": "010-1234-5678",
+        "도우너": "010-9876-5432",
+        "또치": "010-2222-3333"
+    }
+
+    # 기본적인 루프
+    for key in phones:
+        print(f"{key}: {phones.get(key)}")
+
+    for key in phones.keys():
+        print(f"{key}: {phones.get(key)}")
+
+    print("items:", phones.items())
+    for key, value in phones.items():   # (키, 값)
+        print(f"{key}: {value}")
+
+
 if __name__ == "__main__":
     # define_dict()
     # dict_oper()
     # dict_methods()
-    using_dict()
+    # using_dict()
+    loop()
