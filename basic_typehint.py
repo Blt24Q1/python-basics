@@ -35,5 +35,5 @@ def process_value(value: Union[int, str]) -> str:
 
 
 # 함수 데이터 타입
-def execute_op(op: Callable[[int, int], int], a:int, b:int) -> int:
+def execute_op(op: Callable[[int, int], int], a: int, b: int) -> int:
     return op(a, b)
